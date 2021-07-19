@@ -1,6 +1,17 @@
 import tkinter
 import pyperclip
 
+numbers = { '0' : "zero",
+			'1' : "one",
+			'2' : "two",
+			'3' : "three", 
+			'4' : "four",
+			'5' : "five",
+			'6' : "six",
+			'7' : "seven",
+			'8' : "eight",
+			'9' : "nine" }
+
 alphabets = 'abcdefghijklmnopqrstuvwxyz'
 
 def generate () :
@@ -10,6 +21,8 @@ def generate () :
 	for n, i in enumerate (final_text) :
 		if i.lower () in list (alphabets) :
 			final_text [n] = ':regional_indicator_' + i.lower () + ':'
+		elif i.lower () in numbers :
+			final_text [n] = ':' + numbers [i] + ':'
 
 	pyperclip.copy ('‎'.join (final_text))
 
